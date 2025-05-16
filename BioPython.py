@@ -9,6 +9,10 @@ from Bio import SeqIO
 # downloaded COVID genome from UCSC genomic browser
 COVID_genome = "NC_045512v2.fa"
 
+# Fasta format:
+### first line begins with a '>', and contains information about the sequence (header)
+### next lines correspond to the sequence, and are maximum 80 characters
+
 # Reading a FASTA file with SeqIO
 records = SeqIO.parse(COVID_genome, "fasta")
 for sequence in records:
