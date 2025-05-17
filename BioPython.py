@@ -17,6 +17,7 @@ COVID_genome = "NC_045512v2.fa"
 records = SeqIO.parse(COVID_genome, "fasta")
 for sequence in records:
     print(f'ID: {sequence.id}, longitud: {len(sequence)}')
+    covid_sequence = sequence.seq
 
 # Count nucleotides
 
@@ -40,5 +41,14 @@ def counting_nucleotides(fasta_file, organism=''):
     return nucleotides
 
 print(counting_nucleotides(COVID_genome))
+
+# Calculate G-C content (Guanine-Citosine):
+
+from Bio.Seq import Seq
+from Bio.SeqUtils import gc_fraction
+
+GC_content = gc_fraction(covid_sequence)*100
+print(GC_content)
+
 
 # Align - sequences alignment
