@@ -50,5 +50,18 @@ from Bio.SeqUtils import gc_fraction
 GC_content = gc_fraction(covid_sequence)*100
 print(GC_content)
 
+# Sequence
+seq = Seq('ATGAGTACACAGCAAGAAGTCCATACCTTATCATTTAGAGGAAGGAGAAGTCGTAACAAGGTTTCCGTAGGTGAACCCTGA')
+# Its complement
+comp = seq.complement()
+# Its reverse complement
+rev_comp = seq.reverse_complement()
+# Transcribing the secuence
+mRNA = seq.transcribe()
+print(mRNA)
+# Translating the mRNA
+mRNAt=mRNA.translate()
+print (mRNAt)
+# The character * means that it's a stop codon
 
 # Align - sequences alignment
