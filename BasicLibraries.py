@@ -1,6 +1,20 @@
 # In this file we explore some of the basic libraries in Python
 
-import os
+### BUILT-IN FUNCTIONS ###
+
+message = "Hello, nice to meet you"
+numbers = [4, 3, 5, 1, 2]
+
+# measures the length of a variable
+length = len(message)
+
+# sums elements of a list
+sum = sum(numbers)
+
+# organizes a list (by ascending order)
+sorted_numbers = sorted(numbers)
+
+import os # operating system interfaces
 
 song = """
 We keep this love in a photograph
