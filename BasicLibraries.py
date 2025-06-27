@@ -1,4 +1,5 @@
 # In this file we explore some of the basic libraries in Python
+import collections
 
 ### BUILT-IN FUNCTIONS ###
 
@@ -14,7 +15,9 @@ sum = sum(numbers)
 # organizes a list (by ascending order)
 sorted_numbers = sorted(numbers)
 
-import os # operating system interfaces
+### OPERATING SYSTEM INTERFACES ###
+
+import os
 
 song = """
 We keep this love in a photograph
@@ -31,6 +34,73 @@ print(lines)
 # Pandas - data analysis
 # ### Serie = 'column'
 # ### DataFrame = 'table'
+
+### TIME HANDLING ###
+
+import time
+import datetime
+
+# gives you the current time in seconds
+current_time = time.time()
+
+# gives you the current date and time
+# format YEAR-MONTH-DAY HOUR:MINUTES:SECONDS
+current_datetime = datetime.datetime.now()
+
+### MATH FUNCTIONS ###
+
+import math
+
+# square root
+print(math.sqrt(4) == 2)
+
+# exponentiation
+print(math.pow(2,2) == 4)
+
+### STATISTICS ###
+
+import statistics
+
+# mean
+print(statistics.mean([2,4,4,6])==4)
+
+# median
+print(statistics.median([2,4,4,6])==4)
+
+# mode
+print(statistics.mode([2,4,4,6])==4)
+
+### COLLECTIONS ###
+
+from collections import Counter
+
+elements = [1,2,3,4,5,6,2,4,6,4,4,4]
+
+# Counter() returns a dictionary with the count of each elements of a list
+# elements are keys, and their counts are values
+counts = collections.Counter(elements)
+print(counts)
+
+### JSON encoding and decoding ###
+
+import json
+
+# json.dumps() converts an object to a JSON string
+# the object can be a dictionary, a list, a tuple, a string, an integer...
+# to convert an object to a file, you can use json.dump(object, final path)
+json_counts = json.dumps(counts)
+print(json_counts)
+
+# json.loads() parse JSON string
+# to load a JSON from a file, you can use json.load()
+json_from_string = json.loads(json_counts)
+print(json_from_string)
+
+### REGULAR EXPRESSIONS ###
+
+
+
+### PANDAS ###
 
 import pandas as pd
 
