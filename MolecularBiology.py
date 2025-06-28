@@ -1,6 +1,6 @@
 # Nei-Gojobori's method for estimating the numbers of synonymous and nonsynonymous nucleotide substitutions
 
-# Ps. You'll have to add the nucleotides ate the beginning or end to give the algorithm the right 'pauta de lectura'
+# Ps. You'll have to add the nucleotides ate the beginning or end to give the algorithm the right reading frame
 
 
 codon_code = {
