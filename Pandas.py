@@ -36,3 +36,4 @@ df_all_patients.to_csv('df_example.csv', sep='\t')
 # Import a .csv as a dataframe
 
 df_imported = pd.read_csv('df_example.csv', sep='\t')
+
