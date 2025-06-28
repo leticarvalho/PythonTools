@@ -37,3 +37,25 @@ df_all_patients.to_csv('df_example.csv', sep='\t')
 
 df_imported = pd.read_csv('df_example.csv', sep='\t')
 
+
+# Peek at the data of a dataframe
+df_imported.head(3) # show the first 3 rows
+df_imported.tail(2) # show the last 2 rows
+
+
+# Understanding the structure of a dataframe
+df_imported.columns # show columns names
+df_imported.shape # show how many rows x columns
+#df_imported.info() # summary with datatypes and non-null values
+
+
+# Selecting specific data
+df_all_patients['Name'] # selecting only the column of Names
+diagnostic_2 = df_all_patients.loc[7,'Diagnostic'] # selecting a row and a column
+df_2 = df_all_patients.set_index('Name') # setting a column as row index
+print(df_2.loc['Don', 'Diagnostic'] == diagnostic_2)
+
+
+# Describing summary statistics (of numeric variables)
+# useful for gene expression distributions
+print(df_all_patients.describe())
