@@ -107,17 +107,73 @@ import re
 email_text = """
 Dear Dr. Smith,
 
-I hope this message finds you well. I am writing to express my interest in the Bioinformatics Internship recently posted by your lab. I am currently pursuing a Master’s in Bioinformatics and have experience working with NGS data, Python, and statistical analysis.
+I hope this message finds you well. 
+I am writing to express my interest in the Internship recently posted by your lab. 
+I am currently pursuing a Master’s in Bioinformatics and have experience working 
+with NGS data, Python, and statistical analysis.
 
 Please find my CV attached. I would be happy to provide any additional information.
 
 Best regards,
-Ana Ribeiro
-ana.ribeiro.bio@gmail.com
+Ana Gomes
+ana.gomesbio@gmail.com
 """
 
+# we could search for an email pattern in a string
+pattern = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+match = re.search(pattern, email_text)
+
+if match:
+    print("I've found an email address:", match.group())
+else:
+    print("I haven't found any email addresses.")
 
 # Example 2: some uses in bioinformatics
+
+# finding restriction enzyme sites in DNA
+
+# example: EcoRI sites (GAATTC)
+sequence = "ATCGGCGAATTCGATGAATTCATTCGGATAGC"
+pattern = "GAATTC"
+
+match = re.search(pattern, sequence)
+
+print(f"EcoRI site found from position {match.start()} to position {match.end()}.")
+
+# identifying a motif in a protein sequence
+
+# example: finding an N-glycosylation motif
+# it's an amino acid sequence that serves as a signal for
+# the attachment of a glycan to a protein during N-glycosylation;
+# it's typically Asparagine(N) + any except Proline (P) + Serine(S) or Threonine(T) + any except Proline (P)
+
+# we will use a fragment of the protein Human Erythropoietin (EPO)
+# as an example, and see if we find N-glycosylation motifs in it
+# UniProt ID: P01588 (EPO_HUMAN)
+
+EPO_fragment = "APPRLICDSRVLERYLLEAKEAENITTGCAEHCSLNENITVPDTKVNFYAWKR"
+pattern = r"N[^P][ST][^P]"
+
+for match in re.finditer(pattern, EPO_fragment):
+    print(f"Motif: {match.group()} at position {match.start()}")
+
+# searching for a Poly-A tail in an RNA sequence
+
+# example: finding a Poly-A tail (from polyadenylation) in a
+# fragment of Human Beta-Globin processed mRNA (NCBI RefSeq: NM_000518.5)
+
+mRNA_fragment = """AAAGTGCTCGGTGCCTTTAGTGATGGCCTGGCTCACCTGGACAACCTCAAGGGCACCTTTGCCACACTGAGTGAGCTGCACGTGGATCCTGAGAACTTCAGGGTGAGTCTATGGGACCCACAGGTTGCCCATAACAGCATCAGGAGTGGACAGATCCCCAAAGGACTCAAAGAACCTCTGGGTCCAAGGTGAACGTGGATGAAGTTGGTGGTGAGGCCCTGGGCAG
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+"""
+pattern = r"A{20,}$"
+
+match = re.search(pattern, mRNA_fragment)
+
+if match:
+    print("Poly-A tail detected!")
+    print(f"Length: {len(match.group())} bases")
+else:
+    print("No poly-A tail found.")
 
 ### PANDAS ###
 
