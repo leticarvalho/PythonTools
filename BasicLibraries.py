@@ -98,7 +98,26 @@ print(json_from_string)
 
 ### REGULAR EXPRESSIONS ###
 
+import re
 
+# re.search() to look for a regular expression within a string
+
+# Example 1: in daily life - searching for an email
+
+email_text = """
+Dear Dr. Smith,
+
+I hope this message finds you well. I am writing to express my interest in the Bioinformatics Internship recently posted by your lab. I am currently pursuing a Master’s in Bioinformatics and have experience working with NGS data, Python, and statistical analysis.
+
+Please find my CV attached. I would be happy to provide any additional information.
+
+Best regards,
+Ana Ribeiro
+ana.ribeiro.bio@gmail.com
+"""
+
+
+# Example 2: some uses in bioinformatics
 
 ### PANDAS ###
 
@@ -123,17 +142,15 @@ df_patients_2 = pd.DataFrame(patients_2)
 df_all_patients = pd.concat([df_patients_1, df_patients_2],
                             ignore_index=True) # gives a new index sequence to the new dataframe
 
-print(df_all_patients)
-
 # Sorting the dataframe by a column
 
 df_all_patients = df_all_patients.sort_values(by="Name", ascending=True)
-print(df_all_patients)
+
 
 # List of diagnostics
 
 diagnostics = df_all_patients['Diagnostic'].unique()
-print(diagnostics)
+
 
 # Export a dataframe to a .csv format
 
@@ -142,4 +159,3 @@ df_all_patients.to_csv('df_example.csv', sep='\t')
 # Import a .csv as a dataframe
 
 df_imported = pd.read_csv('df_example.csv', sep='\t')
-print(df_imported)
